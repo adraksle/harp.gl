@@ -1,0 +1,389 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>TileOffsetUtils | harp.gl</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">harp.gl</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="harp_mapview.html">harp-mapview</a>
+				</li>
+				<li>
+					<a href="harp_mapview.tileoffsetutils.html">TileOffsetUtils</a>
+				</li>
+			</ul>
+			<h1>Module TileOffsetUtils</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="harp_mapview.tileoffsetutils.html#extractoffsetandmortonkeyfromkey" class="tsd-kind-icon">extract<wbr>Offset<wbr>And<wbr>Morton<wbr>Key<wbr>From<wbr>Key</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="harp_mapview.tileoffsetutils.html#getkeyfortilekeyandoffset" class="tsd-kind-icon">get<wbr>Key<wbr>For<wbr>Tile<wbr>Key<wbr>And<wbr>Offset</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="harp_mapview.tileoffsetutils.html#getparentkeyfromkey" class="tsd-kind-icon">get<wbr>Parent<wbr>Key<wbr>From<wbr>Key</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="extractoffsetandmortonkeyfromkey" class="tsd-anchor"></a>
+					<h3>extract<wbr>Offset<wbr>And<wbr>Morton<wbr>Key<wbr>From<wbr>Key</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">extract<wbr>Offset<wbr>And<wbr>Morton<wbr>Key<wbr>From<wbr>Key<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, bitshift<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/heremaps/harp.gl/blob/4fa784b/@here/harp-mapview/lib/Utils.ts#L822">harp-mapview/lib/Utils.ts:822</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Extracts the offset and morton key from the given key (must be created by:
+									<a href="harp_mapview.tileoffsetutils.html#getkeyfortilekeyandoffset">getKeyForTileKeyAndOffset</a>)</p>
+								</div>
+								<p>Note, we can&#39;t use bitshift operators in Javascript because they work on 32-bit integers, and
+								would truncate the numbers, hence using powers of two.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>key: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Key to extract offset and morton key.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> bitshift: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;4</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>How many bits to shift by, must be the same as was used when creating the
+										key.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
+							<ul class="tsd-parameters">
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="getkeyfortilekeyandoffset" class="tsd-anchor"></a>
+					<h3>get<wbr>Key<wbr>For<wbr>Tile<wbr>Key<wbr>And<wbr>Offset</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Key<wbr>For<wbr>Tile<wbr>Key<wbr>And<wbr>Offset<span class="tsd-signature-symbol">(</span>tileKey<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">geoUtils.TileKey</span>, offset<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, bitshift<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/heremaps/harp.gl/blob/4fa784b/@here/harp-mapview/lib/Utils.ts#L802">harp-mapview/lib/Utils.ts:802</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a unique key based on the supplied parameters. Note, the uniqueness is bounded by the
+										bitshift. The [[TileKey.mortonCode()]] supports currently up to 26 levels (this is because
+										26*2 equals 52, and 2^52 is the highest bit that can be set in an integer in Javascript), the
+										bitshift reduces this accordingly, so given the default bitshift of four, we support up to 24
+									levels. Given the current support up to level 19 this should be fine.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>tileKey: <span class="tsd-signature-type">geoUtils.TileKey</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The unique <a href="../classes/harp_geoutils.tilekey.html">TileKey</a> from which to compute the unique key.</p>
+									</div>
+								</li>
+								<li>
+									<h5>offset: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>How much the given <a href="../classes/harp_geoutils.tilekey.html">TileKey</a> is offset</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> bitshift: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;4</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>How much space we have to store the offset. The default of 4 means we have
+										enough space to store 16 unique tiles in a single view.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="getparentkeyfromkey" class="tsd-anchor"></a>
+					<h3>get<wbr>Parent<wbr>Key<wbr>From<wbr>Key</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Parent<wbr>Key<wbr>From<wbr>Key<span class="tsd-signature-symbol">(</span>calculatedKey<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, bitshift<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/heremaps/harp.gl/blob/4fa784b/@here/harp-mapview/lib/Utils.ts#L848">harp-mapview/lib/Utils.ts:848</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns the key of the parent. Key must have been computed using the function
+									<a href="harp_mapview.tileoffsetutils.html#getkeyfortilekeyandoffset">getKeyForTileKeyAndOffset</a>.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>calculatedKey: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Key to decompose</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> bitshift: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;4</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Bit shift used to create the key</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="harp_datasource_protocol.html">harp-<wbr>datasource-<wbr>protocol</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="harp_debug_datasource.html">harp-<wbr>debug-<wbr>datasource</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="harp_examples.html">harp-<wbr>examples</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="harp_fetch.html">harp-<wbr>fetch</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="harp_geojson_datasource.html">harp-<wbr>geojson-<wbr>datasource</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="harp_geometry.html">harp-<wbr>geometry</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="harp_geoutils.html">harp-<wbr>geoutils</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="harp_lines.html">harp-<wbr>lines</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="harp_lrucache.html">harp-<wbr>lrucache</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="harp_map_controls.html">harp-<wbr>map-<wbr>controls</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="harp_map_theme.html">harp-<wbr>map-<wbr>theme</a>
+					</li>
+					<li class="current tsd-kind-external-module">
+						<a href="harp_mapview.html">harp-<wbr>mapview</a>
+						<ul>
+							<li class=" tsd-kind-module tsd-parent-kind-external-module">
+								<a href="harp_mapview.copyrightinfo.html">Copyright<wbr>Info</a>
+							</li>
+							<li class=" tsd-kind-module tsd-parent-kind-external-module">
+								<a href="harp_mapview.imageitem.html">Image<wbr>Item</a>
+							</li>
+							<li class=" tsd-kind-module tsd-parent-kind-external-module">
+								<a href="harp_mapview.mapviewutils.html">Map<wbr>View<wbr>Utils</a>
+							</li>
+							<li class="current tsd-kind-module tsd-parent-kind-external-module">
+								<a href="harp_mapview.tileoffsetutils.html">Tile<wbr>Offset<wbr>Utils</a>
+							</li>
+						</ul>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="harp_mapview_decoder.html">harp-<wbr>mapview-<wbr>decoder</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="harp_materials.html">harp-<wbr>materials</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="harp_omv_datasource.html">harp-<wbr>omv-<wbr>datasource</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="harp_test_utils.html">harp-<wbr>test-<wbr>utils</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="harp_text_canvas.html">harp-<wbr>text-<wbr>canvas</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="harp_transfer_manager.html">harp-<wbr>transfer-<wbr>manager</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="harp_utils.html">harp-<wbr>utils</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="harp_webtile_datasource.html">harp-<wbr>webtile-<wbr>datasource</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-module tsd-parent-kind-external-module">
+						<a href="harp_mapview.tileoffsetutils.html" class="tsd-kind-icon">Tile<wbr>Offset<wbr>Utils</a>
+						<ul>
+							<li class=" tsd-kind-function tsd-parent-kind-module">
+								<a href="harp_mapview.tileoffsetutils.html#extractoffsetandmortonkeyfromkey" class="tsd-kind-icon">extract<wbr>Offset<wbr>And<wbr>Morton<wbr>Key<wbr>From<wbr>Key</a>
+							</li>
+							<li class=" tsd-kind-function tsd-parent-kind-module">
+								<a href="harp_mapview.tileoffsetutils.html#getkeyfortilekeyandoffset" class="tsd-kind-icon">get<wbr>Key<wbr>For<wbr>Tile<wbr>Key<wbr>And<wbr>Offset</a>
+							</li>
+							<li class=" tsd-kind-function tsd-parent-kind-module">
+								<a href="harp_mapview.tileoffsetutils.html#getparentkeyfromkey" class="tsd-kind-icon">get<wbr>Parent<wbr>Key<wbr>From<wbr>Key</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>
