@@ -1300,6 +1300,12 @@ export class Tile implements CachedResource {
     diffuseColor *= texelColor;
 #endif`
                         );
+
+                        shader.vertexShader = shader.vertexShader.replace(
+                            "#include <displacementmap_vertex>",
+                            `transformed = vec3(position.xy, 0);
+                            #include <displacementmap_vertex>`
+                        );
                     };
                 }
 
