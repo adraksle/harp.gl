@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import { HelloWorldExample } from "@here/harp-examples/src/hello";
 import { GeoCoordinates } from "@here/harp-geoutils";
 import { MapControls, MapControlsUI } from "@here/harp-map-controls";
 import {
@@ -69,39 +70,13 @@ export namespace ThreejsAddSimpleObject {
     // end:harp_gl_threejs_add_simple_object_0.ts
 
     // Create a new MapView for the HTMLCanvasElement of the given id.
-    function initializeMapView(id: string): MapView {
-        const canvas = document.getElementById(id) as HTMLCanvasElement;
-        const map = new MapView({
-            canvas,
-            theme: "resources/berlin_tilezen_base.json"
-        });
-
-        CopyrightElementHandler.install("copyrightNotice", map);
-
-        // Center the camera on Manhattan, New York City.
-        map.setCameraGeolocationAndZoom(new GeoCoordinates(40.6935, -74.009), 16.9);
-
-        // Instantiate the default map controls, allowing the user to pan around freely.
-        const mapControls = new MapControls(map);
-        mapControls.maxPitchAngle = 50;
-        mapControls.setRotation(6.3, 50);
-
-        // Add an UI.
-        const ui = new MapControlsUI(mapControls);
-        canvas.parentElement!.appendChild(ui.domElement);
-
-        // Resize the mapView to maximum.
-        map.resize(window.innerWidth, window.innerHeight);
-
-        // React on resize events.
-        window.addEventListener("resize", () => {
-            map.resize(window.innerWidth, window.innerHeight);
-        });
+    function addMouseEventListener(mapView: MapView) {
+        const canvas = mapView.canvas;
 
         canvas.addEventListener("mousedown", event => {
             // snippet:harp_gl_threejs_add_simple_object_1.ts
             // Get the position of the mouse in world space.
-            const worldPositionAtMouse = map.getWorldPositionAt(event.pageX, event.pageY);
+            const worldPositionAtMouse = mapView.getWorldPositionAt(event.pageX, event.pageY);
             if (worldPositionAtMouse === null) {
                 return;
             }
@@ -109,26 +84,24 @@ export namespace ThreejsAddSimpleObject {
 
             // snippet:harp_gl_threejs_add_simple_object_2.ts
             const cube = createPinkCube();
-            map.scene.add(cube);
+            mapView.scene.add(cube);
             // end:harp_gl_threejs_add_simple_object_2.ts
 
             // snippet:harp_gl_threejs_add_simple_object_3.ts
             // Add a callback to execute before the items are rendered.
-            map.addEventListener(MapViewEventNames.Render, () => {
+            mapView.addEventListener(MapViewEventNames.Render, () => {
                 // Set the cube position relative to the world center. Note, we don't subtract the
                 // [[worldCenter]] from the worldMousePosition, because we need to keep the cubes
                 // world position untouched.
-                cube.position.copy(worldPositionAtMouse).sub(map.worldCenter);
+                cube.position.copy(worldPositionAtMouse).sub(mapView.worldCenter);
             });
             // end:harp_gl_threejs_add_simple_object_3.ts
 
             // snippet:harp_gl_threejs_add_simple_object_4.ts
             // Force the scene to be rerendered once the cube is added to the scene.
-            map.update();
+            mapView.update();
             // end:harp_gl_threejs_add_simple_object_4.ts
         });
-
-        return map;
     }
 
     const message = document.createElement("div");
@@ -140,24 +113,6 @@ export namespace ThreejsAddSimpleObject {
     message.style.right = "10px";
     document.body.appendChild(message);
 
-    const mapView = initializeMapView("mapCanvas");
-
-    const hereCopyrightInfo: CopyrightInfo = {
-        id: "here.com",
-        year: new Date().getFullYear(),
-        label: "HERE",
-        link: "https://legal.here.com/terms"
-    };
-    const copyrights: CopyrightInfo[] = [hereCopyrightInfo];
-
-    const omvDataSource = new OmvDataSource({
-        baseUrl: "https://xyz.api.here.com/tiles/herebase.02",
-        apiFormat: APIFormat.XYZOMV,
-        styleSetName: "tilezen",
-        maxZoomLevel: 17,
-        authenticationCode: accessToken,
-        copyrightInfo: copyrights
-    });
-
-    mapView.addDataSource(omvDataSource);
+    const mapView = HelloWorldExample.initializeMap();
+    addMouseEventListener(mapView);
 }

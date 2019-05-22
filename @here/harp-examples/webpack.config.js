@@ -155,38 +155,41 @@ const exampleDefs = Object.keys(allEntries).reduce(function(r, entry) {
 }, {});
 
 browserConfig.plugins.push(
-    new CopyWebpackPlugin([
-        {
-            from: __dirname + "/example-definitions.js.in",
-            to: "example-definitions.js",
-            transform: content => {
-                return content
-                    .toString()
-                    .replace("{{EXAMPLES}}", JSON.stringify(exampleDefs, true, 4));
-            }
-        },
-        ...[path.join(__dirname, "src")].map(srcDir => ({
-            from: path.join(srcDir, "*.{ts,tsx,html}"),
-            to: "src/[name].[ext]"
-        })),
-        path.join(__dirname, "index.html"),
-        {
-            from: path.join(__dirname, "src/*.html"),
-            to: "[name].[ext]"
-        },
-        path.join(__dirname, "codebrowser.html"),
-        { from: path.join(__dirname, "resources"), to: "resources", toType: "dir" },
-        { from: path.join(harpMapThemePath, "resources"), to: "resources", toType: "dir" },
-        {
-            from: path.join(harpFontResourcesPath, "resources"),
-            to: "resources/fonts",
-            toType: "dir"
-        },
-        require.resolve("three/build/three.min.js"),
-        require.resolve("@here/harp.gl/dist/harp.js"),
-        require.resolve("@here/harp.gl/dist/harp-decoders.js"),
+    new CopyWebpackPlugin(
+        [
+            {
+                from: __dirname + "/example-definitions.js.in",
+                to: "example-definitions.js",
+                transform: content => {
+                    return content
+                        .toString()
+                        .replace("{{EXAMPLES}}", JSON.stringify(exampleDefs, true, 4));
+                }
+            },
+            ...[path.join(__dirname, "src")].map(srcDir => ({
+                from: path.join(srcDir, "*.{ts,tsx,html}"),
+                to: "src/[name].[ext]"
+            })),
+            path.join(__dirname, "index.html"),
+            {
+                from: path.join(__dirname, "src/*.html"),
+                to: "[name].[ext]"
+            },
+            path.join(__dirname, "codebrowser.html"),
+            { from: path.join(__dirname, "resources"), to: "resources", toType: "dir" },
+            { from: path.join(harpMapThemePath, "resources"), to: "resources", toType: "dir" },
+            {
+                from: path.join(harpFontResourcesPath, "resources"),
+                to: "resources/fonts",
+                toType: "dir"
+            },
+            require.resolve("three/build/three.min.js"),
+            require.resolve("three/examples/js/libs/inflate.min.js"),
+            require.resolve("three/examples/js/loaders/FBXLoader.js"),
+            require.resolve("@here/harp.gl/dist/harp.js"),
+            require.resolve("@here/harp.gl/dist/harp-decoders.js")
         ],
-        { ignore: ['*.npmignore','*.gitignore'] }
+        { ignore: ["*.npmignore", "*.gitignore"] }
     )
 );
 
