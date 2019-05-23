@@ -10,7 +10,7 @@ import { ILogger } from "@here/harp-utils";
 import { IGeometryProcessor, ILineGeometry, IPolygonGeometry, IRing } from "./IGeometryProcessor";
 import { OmvFeatureFilter } from "./OmvDataFilter";
 import { OmvDataAdapter } from "./OmvDecoder";
-import { isArrayBufferLike, lat2tile, tile2lat } from "./OmvUtils";
+import { isArrayBuffer, lat2tile, tile2lat } from "./OmvUtils";
 
 type VTJsonPosition = [number, number];
 
@@ -77,7 +77,7 @@ export class VTJsonDataAdapter implements OmvDataAdapter {
     }
 
     canProcess(data: ArrayBufferLike | {}): boolean {
-        if (isArrayBufferLike(data)) {
+        if (isArrayBuffer(data)) {
             return false;
         }
 

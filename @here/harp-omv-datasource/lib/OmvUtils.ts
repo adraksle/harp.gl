@@ -7,8 +7,8 @@
 /**
  * @hidden
  */
-export function isArrayBufferLike(data: any): data is ArrayBufferLike {
-    return data instanceof ArrayBuffer || data instanceof SharedArrayBuffer;
+export function isArrayBuffer(data: any): data is ArrayBufferLike {
+    return data instanceof ArrayBuffer;
 }
 
 /**

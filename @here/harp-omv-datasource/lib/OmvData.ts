@@ -12,7 +12,7 @@ import { IGeometryProcessor, ILineGeometry, IPolygonGeometry, IRing } from "./IG
 import { OmvFeatureFilter } from "./OmvDataFilter";
 import { OmvDataAdapter } from "./OmvDecoder";
 import { OmvGeometryType } from "./OmvDecoderDefs";
-import { isArrayBufferLike, lat2tile, tile2lat } from "./OmvUtils";
+import { isArrayBuffer, lat2tile, tile2lat } from "./OmvUtils";
 import { com } from "./proto/vector_tile";
 
 /**
@@ -420,7 +420,7 @@ export class OmvProtobufDataAdapter implements OmvDataAdapter, OmvVisitor {
      * Checks that the given data can be processed by this [[OmvProtobufDataAdapter]].
      */
     canProcess(data: ArrayBufferLike | {}): boolean {
-        return isArrayBufferLike(data);
+        return isArrayBuffer(data);
     }
 
     /**
