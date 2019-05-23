@@ -1,0 +1,13 @@
+*.ts
+!*.d.ts
+*.js.map
+test/
+output/
+input/
+resources/
+resources-dev/
+src/
+tsconfig.json
+.gitignore
+.gitreview
+*.tgz
